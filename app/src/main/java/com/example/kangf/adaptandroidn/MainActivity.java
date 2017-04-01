@@ -30,14 +30,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void onNotification(View view) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downloadUrl));
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-        request.setTitle("通知标题XXX");
-        request.setDescription("对于该请求文件的描述");
+        request.setTitle("downloading...");
+        request.setDescription("desc for the file.");
 
-        File saveFile = new File(Environment.getExternalStorageDirectory(), "demooo.apk");
+        double suffix = Math.random() * 1000;
+        String fileSuffix = String.valueOf((int) suffix);
+        FileNameUtil.fileName = Environment.getExternalStorageDirectory() + "/boomstack_demo" + fileSuffix + ".apk";
+
+        File saveFile = new File(FileNameUtil.fileName);
         request.setDestinationUri(Uri.fromFile(saveFile));
 
         DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);

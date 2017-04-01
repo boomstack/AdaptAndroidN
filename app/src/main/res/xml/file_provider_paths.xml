@@ -2,7 +2,7 @@
 <resources>
     <paths>
         <external-path
-            name="demooo.apk"
-            path=""></external-path>
+            name="boomstack_demo.*"
+            path="."></external-path>
     </paths>
 </resources>
